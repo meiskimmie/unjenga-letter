@@ -117,6 +117,15 @@
   .site-footer a { text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
 
+    /* 메일 카드가 둥둥 떠 있는 효과 */
+  .letter { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .letter { animation: none; }
+  }
   .br-desktop { display: inline; }
 
   /* Tablet */
