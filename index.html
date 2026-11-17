@@ -117,15 +117,16 @@
   .site-footer a { text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
 
-    /* 메일 카드가 둥둥 떠 있는 효과 */
+  /* 메일 카드가 둥둥 떠 있는 효과 */
   .letter { animation: float 6s ease-in-out infinite; }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-12px); }
   }
   @media (prefers-reduced-motion: reduce) {
     .letter { animation: none; }
   }
+
   .br-desktop { display: inline; }
 
   /* Tablet */
@@ -134,23 +135,41 @@
     .hero .wrap { flex-direction: column; align-items: stretch; }
     .letter { width: 100%; max-width: 520px; align-self: center; }
   }
-  /* Mobile */
+  /* Mobile — Figma "Landing — Mobile 390" 기준 */
+  .br-mobile { display: none; }
   @media (max-width: 720px) {
     :root { --pad-x: 20px; }
-    .hero .wrap { padding-top: 32px; padding-bottom: 64px; gap: 40px; }
-    .hero h1 { font-size: 34px; line-height: 44px; }
-    .hero .lede { font-size: 16px; line-height: 27px; }
-    .btn { width: 100%; }
-    .subscribe { align-items: stretch; }
-    section h2 { font-size: 26px; line-height: 36px; }
-    .how .wrap, .why .wrap, .audience .wrap { padding-top: 64px; padding-bottom: 64px; }
-    .why .wrap { gap: 32px; }
-    .why-story { font-size: 16px; line-height: 28px; }
-    .cards { grid-template-columns: minmax(0, 1fr); }
-    .cta .wrap { padding-top: 72px; padding-bottom: 72px; }
-    .cta h2 { font-size: 28px; line-height: 38px; }
+    .site-header { background: #fff; border-bottom: 1px solid var(--line); }
+
+    .hero .wrap { padding-top: 32px; padding-bottom: 48px; gap: 32px; }
+    .hero-copy { gap: 16px; }
+    .hero h1 { font-size: 34px; line-height: 46px; letter-spacing: 0; }
+    .hero .lede { font-size: 18px; line-height: 30px; }
+    .hero .subscribe { gap: 8px; align-items: stretch; }
+    .hero .btn { width: 100%; }
+    .subscribe-note { line-height: 22px; }
+
+    .letter { max-width: none; }
+    .letter-block .label { line-height: 20px; }
+    .letter-block p { line-height: 22px; }
+    .letter-q p { font-size: 16px; line-height: 24px; font-weight: 700; }
+    .letter-reply { font-size: 13px; line-height: 20px; }
     .letter-bar .more { right: 22px; }
+
+    section h2 { font-size: 24px; line-height: 32px; letter-spacing: 0; }
+    .how .wrap { padding-top: 48px; padding-bottom: 48px; gap: 24px; }
+    .cards { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .why .wrap { padding-top: 48px; padding-bottom: 48px; gap: 56px; }
+    .audience .wrap { padding-top: 48px; padding-bottom: 48px; gap: 24px; }
+
+    .cta .wrap { padding-top: 80px; padding-bottom: 80px; gap: 32px; }
+    .cta h2 { font-size: 24px; line-height: 32px; }
+    .cta .sub { font-size: 14px; line-height: 22px; }
+
+    .site-footer .wrap { flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+
     .br-desktop { display: none; }
+    .br-mobile { display: inline; }
   }
 </style>
 </head>
@@ -172,7 +191,6 @@
         <div class="subscribe">
           <a class="btn btn-dark" href="https://maily.so/unjengaletter">
             무료로 구독하기
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <p class="subscribe-note">메일리에서 이메일만 입력하면 바로 구독 가능해요</p>
         </div>
@@ -205,7 +223,7 @@
 
   <section class="how" aria-labelledby="how-title">
     <div class="wrap">
-      <h2 id="how-title">읽고 넘긴 뉴스에서, 내 말로 설명할 이슈로.</h2>
+      <h2 id="how-title">읽고 넘긴 뉴스에서,<br class="br-mobile"> 내 말로 설명할 이슈로.</h2>
       <ol class="cards">
         <li class="step">
           <h3>무슨 일이 있었냐면</h3>
@@ -274,7 +292,6 @@
       <div class="subscribe">
         <a class="btn btn-blue" href="https://maily.so/unjengaletter">
           첫 이슈 받아보기
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <p class="subscribe-note">언제든 구독 해지할 수 있어요</p>
       </div>
