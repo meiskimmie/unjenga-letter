@@ -79,16 +79,26 @@
   .letter-bar .more i { width: 3px; height: 3px; border-radius: 50%; background: #133a9f; }
   .letter-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
   .letter-block { display: flex; flex-direction: column; gap: 6px; }
-  .letter-block .label { font-size: 13px; line-height: 1.4; font-weight: 700; }
-  .letter-block p { font-size: 15px; line-height: 1.6; color: var(--body); }
+  .letter-block .label { font-size: 13px; line-height: 20px; font-weight: 700; }
+  .letter-block p { font-size: 15px; line-height: 22px; color: var(--body); }
   .letter-q { background: var(--accent-soft); border-radius: 12px; padding: 18px; }
   .letter-q .label { color: var(--accent); }
-  .letter-q p { font-size: 17px; line-height: 1.5; font-weight: 600; color: var(--ink); }
-  .letter-reply { border-top: 1px dashed #c9cdd3; padding-top: 16px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+  .letter-q p { font-size: 16px; line-height: 24px; font-weight: 700; color: var(--ink); }
+  .letter-reply { border-top: 1px dashed #c9cdd3; padding-top: 16px; font-size: 13px; line-height: 20px; color: var(--muted); }
 
   /* Sections */
   section h2 { font-size: 34px; line-height: 46px; font-weight: 700; letter-spacing: -0.01em; }
-  .how { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .how { background: #fff; border-top: 1px solid var(--line); }
+
+  /* PROBLEM 섹션 */
+  .problem { background: #fff; border-bottom: 1px solid var(--line); }
+  .problem .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; gap: 56px; align-items: flex-start; }
+  .problem-head { flex: none; width: 373px; display: flex; flex-direction: column; gap: 12px; }
+  .problem-head p { font-size: 18px; line-height: 30px; color: var(--body); }
+  .problem-list { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 36px; list-style: none; margin: 0; padding: 0; }
+  .problem-list li { display: flex; flex-direction: column; gap: 10px; }
+  .problem-list h3 { font-size: 20px; line-height: 28px; font-weight: 700; color: var(--accent); }
+  .problem-list p { font-size: 16px; line-height: 24px; color: var(--body); }
   .how .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 40px; }
   .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; list-style: none; margin: 0; padding: 0; }
   .step { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
@@ -109,7 +119,7 @@
   .cta { background: var(--ink); color: #fff; text-align: center; }
   .cta .wrap { padding-top: 104px; padding-bottom: 104px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
   .cta h2 { font-size: 38px; line-height: 50px; }
-  .cta .sub { margin-top: 16px; font-size: 17px; line-height: 1.6; color: #b4bac4; }
+  .cta .sub { margin-top: 16px; font-size: 18px; line-height: 30px; color: #b4bac4; }
   .cta .subscribe { align-items: center; }
   .cta .subscribe-note { color: #b4bac4; }
 
@@ -134,6 +144,10 @@
     :root { --pad-x: 40px; }
     .hero .wrap { flex-direction: column; align-items: stretch; }
     .letter { width: 100%; max-width: 520px; align-self: center; }
+
+    /* PROBLEM 섹션 — 타블렛·모바일 */
+    .problem .wrap { flex-direction: column; gap: 32px; }
+    .problem-head { width: 100%; }
 
     /* WHY 섹션 — 타블렛·모바일 */
     .why .wrap { gap: 24px; }
@@ -163,6 +177,13 @@
     section h2 { font-size: 24px; line-height: 32px; letter-spacing: 0; }
     .how .wrap { padding-top: 48px; padding-bottom: 48px; gap: 24px; }
     .cards { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .problem .wrap { padding-top: 48px; padding-bottom: 48px; gap: 32px; }
+    .problem-head { gap: 8px; }
+    .problem-head p { font-size: 13px; line-height: 20px; }
+    .problem-list { gap: 20px; }
+    .problem-list li { gap: 6px; }
+    .problem-list h3 { font-size: 16px; line-height: 24px; }
+    .problem-list p { font-size: 14px; line-height: 22px; }
     .why .wrap { padding-top: 48px; padding-bottom: 48px; }
     .audience .wrap { padding-top: 48px; padding-bottom: 48px; gap: 24px; }
 
@@ -227,7 +248,7 @@
 
   <section class="how" aria-labelledby="how-title">
     <div class="wrap">
-      <h2 id="how-title">읽고 넘긴 뉴스에서,<br class="br-mobile"> 내 말로 설명할 이슈로.</h2>
+      <h2 id="how-title">읽고 넘긴 뉴스에서,<br class="br-mobile"> 내 말로 설명할 수 있게<span class="br-desktop">.</span></h2>
       <ol class="cards">
         <li class="step">
           <h3>무슨 일이 있었냐면</h3>
@@ -242,6 +263,29 @@
           <p>질문 하나에 내 생각을 2~3줄로 답장해요. 그렇게 쌓인 답장이 결국 나만의 설명이 돼요.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="problem-head">
+        <h2 id="problem-title">정보를 받아보는 것과<br>내 것으로 만드는 것은<br>다르더라고요.</h2>
+        <p>매일 새로운 이슈를 읽는 것만으로 충분할까요? 중요한 건 읽은 내용을 이해하고, 내 생각으로 정리하는 일이에요.</p>
+      </div>
+      <ul class="problem-list">
+        <li>
+          <h3>AI에게 맡기면 편하긴하죠</h3>
+          <p>AI로 원하는 이슈를 자동으로 받아볼 수 있지만, 직접 설정하고 관리하는 일은 꾸준히 이어가기 어려워요. 언젠가 Letter는 매일 정리된 이슈를 정해진 시간에 보내드려요.</p>
+        </li>
+        <li>
+          <h3>읽고 나면 금방 휘발되기도 해요</h3>
+          <p>읽는 것만으로는 오래 기억하기 어려워요. 매일 하나의 질문에 2~3줄로 답하며, 읽은 내용을 내 생각으로 정리해 보세요.</p>
+        </li>
+        <li>
+          <h3>읽고, 생각하고, 내 말로 설명할 수 있도록!</h3>
+          <p>매일 쌓인 작은 생각들이 언젠가 나만의 관점과 근거가 되어줄 거예요.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
